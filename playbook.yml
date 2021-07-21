@@ -1,0 +1,17 @@
+---
+- name: OpenStack Jinja Heat Orchestration Template
+  hosts: localhost
+  vars_files:
+   - instance_vars.yml
+  tasks:
+    - name: Generate HOT template
+      template:
+        src: heat_template.yml.j2
+        dest: /tmp/heat_template.yml
+
+    - name: Create Openstack simple Heat stack (--dry-run)
+      command: >-
+        openstack stack create --dry-run -vvv
+        -t /tmp/heat_template.yml
+        -f json base-stack-{{ 99999 | random }}
+        --os-cloud {{ guid }}-project
