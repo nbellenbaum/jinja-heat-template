@@ -1,5 +1,5 @@
 #replace guid value with your environment guid
-guid: f762
+guid: b262
 ssh_public_key_path: "~/.ssh/{{ guid }}key.pub"
 all_ssh_authorized_keys: "{{ lookup('file', ssh_public_key_path)}}"
 key_name: "{{ guid }}-keypair"

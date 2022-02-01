@@ -8,7 +8,7 @@ resources:
     properties:
       name: server
       flavor: GLOBAL-CPU_4_Memory_8192_Disk_30_flavor
-      key_name: f762-keypair
+      key_name: b262-keypair
       config_drive: True
       block_device_mapping_v2:
         - image: rhel-8.3
@@ -20,9 +20,9 @@ resources:
         #cloud-config
         ssh_authorized_keys: "ssh-rsa AAAAB3NzaC1yc2 --<Output Omitted>--- devops@opentlc.com"
       networks:
-        - network: f762-dev-network
+        - network: b262-dev-network
       metadata:
         'AnsibleGroup': "apps"
       security_groups:
-        - f762-DefaultSG
-        - f762-HostSG
+        - b262-DefaultSG
+        - b262-HostSG
